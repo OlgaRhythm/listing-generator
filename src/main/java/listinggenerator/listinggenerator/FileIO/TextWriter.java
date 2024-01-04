@@ -9,9 +9,8 @@ import java.io.IOException;
 
 public class TextWriter {
 
-
-    static void writeToDocument (XWPFDocument document) {
-        try (FileOutputStream out = new FileOutputStream("output.docx")) {
+    static void writeToDocument (XWPFDocument document, String docNameValue) {
+        try (FileOutputStream out = new FileOutputStream(docNameValue + ".docx")) {
             document.write(out);
             System.out.println("Документ успешно создан");
         } catch (IOException e) {
