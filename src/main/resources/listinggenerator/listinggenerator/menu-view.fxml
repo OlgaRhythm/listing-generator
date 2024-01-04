@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="listinggenerator.listinggenerator.MenuController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="300.0">
+         <children>
+            <ImageView fx:id="pic" fitHeight="400.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="450.0">
+         <children>
+            <Text layoutX="30.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Генератор листинга" textAlignment="CENTER" wrappingWidth="314.2828369140625">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите директорию:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button fx:id="start" layoutX="234.0" layoutY="361.0" mnemonicParsing="false" onAction="#startClicked" text="Пуск!" />
+            <Text layoutX="14.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите название докумета с листингом:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button fx:id="chooseDir" layoutX="14.0" layoutY="158.0" mnemonicParsing="false" onAction="#chooseDirClicked" text="Выбрать" />
+            <Text fx:id="errorMessage" layoutX="15.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="errorMessage" textAlignment="RIGHT" wrappingWidth="209.336669921875" />
+            <TextField fx:id="directory" layoutX="14.0" layoutY="122.0" />
+            <TextField fx:id="docName" layoutX="15.0" layoutY="250.0" />
+            <Text fx:id="errorMessageDir" layoutX="89.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="errorMessageDir" />
+            <Button fx:id="mus" layoutX="397.0" layoutY="14.0" mnemonicParsing="false" onAction="#musClicked" text="mus" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
