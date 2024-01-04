@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.DirectoryChooser;
+import listinggenerator.listinggenerator.FileIO.ListingGenerator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -85,9 +86,10 @@ public class MenuController {
 
     }
 
-    
     @FXML
     void startClicked(ActionEvent event) {
-
+        String directoryValue = directory.getText();
+        String docNameValue = docName.getText();
+        errorMessage.setText(ListingGenerator.generate(directoryValue, docNameValue));
     }
 }
