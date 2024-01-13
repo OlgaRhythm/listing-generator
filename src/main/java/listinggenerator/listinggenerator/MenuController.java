@@ -41,12 +41,18 @@ public class MenuController {
     @FXML
     private Button mus;
 
+    boolean musOn = false;
+
     private Stage stage;
 
     public void start(Stage stage, Scene scene) {
         stage.setTitle("Генератор листинга");
 
-        loadPic();
+        // Установка изображения в ImageView
+        pic.setImage(loadPic("anime.jpg"));
+        // Установка изображения в кнопку музыки
+        loadPicMusButton("musoff.png");
+        musOn = false;
 
         stage.setScene(scene);
         stage.show();
@@ -55,16 +61,21 @@ public class MenuController {
 
     }
 
-    private void loadPic() {
+    private Image loadPic(String fileName) {
         // Загрузка изображения из файла
-        InputStream stream = getClass().getResourceAsStream("/anime.jpg");
+        InputStream stream = getClass().getResourceAsStream("/images/"+fileName);
         if (stream == null) {
             System.out.println("Ошибка при загрузке изображения");
-            return;
+            return null;
         }
-        Image image = new Image(stream);
-        // Установка изображения в ImageView
-        pic.setImage(image);
+        return new Image(stream);
+    }
+
+    private void loadPicMusButton(String fileName) {
+        ImageView imageView = new ImageView(loadPic(fileName));
+        mus.setText("");
+        mus.setStyle("-fx-background-color: transparent;");
+        mus.setGraphic(imageView);
     }
 
     @FXML
@@ -80,7 +91,13 @@ public class MenuController {
 
     @FXML
     void musClicked(ActionEvent event) {
-
+        if (musOn) {
+            musOn = false;
+            loadPicMusButton("musoff.png");
+        } else {
+            musOn = true;
+            loadPicMusButton("muson.png");
+        }
     }
 
     @FXML
