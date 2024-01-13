@@ -19,9 +19,18 @@ public class TextWriter {
     }
 
     static void addContentToDocument(XWPFDocument document, String fileName, String content) {
-        XWPFParagraph paragraph = document.createParagraph();
-        XWPFRun run = paragraph.createRun();
-        run.setText("File: " + fileName + "\n" + content);
+        // file name
+        XWPFParagraph fileNameTitle = document.createParagraph();
+        XWPFRun runFileNameTitle = fileNameTitle.createRun();
+        runFileNameTitle.setFontFamily("Times New Roman");
+        runFileNameTitle.setFontSize(14);
+        runFileNameTitle.setText(fileName + "\n");
+        runFileNameTitle.addBreak();
+        // code
+        XWPFParagraph codeContent = document.createParagraph();
+        XWPFRun run = codeContent.createRun();
+        run.setFontFamily("Courier New");
+        run.setText(content);
         run.addBreak();
     }
 

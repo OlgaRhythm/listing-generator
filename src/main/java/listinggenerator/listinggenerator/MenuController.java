@@ -33,9 +33,6 @@ public class MenuController {
     private Text errorMessage;
 
     @FXML
-    private Text errorMessageDir;
-
-    @FXML
     private ImageView pic;
 
     @FXML
