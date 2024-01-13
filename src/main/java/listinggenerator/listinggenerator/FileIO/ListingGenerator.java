@@ -3,6 +3,8 @@ package listinggenerator.listinggenerator.FileIO;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ListingGenerator {
     public static String generate(String directoryValue, String docNameValue) {
@@ -12,7 +14,7 @@ public class ListingGenerator {
                 processFilesInDirectory(directory, docNameValue);
                 return "Успешно! ^_^";
             } else {
-                return "Ошибка в имени файла";
+                return "Имя файла может содержать только латиницу, цифры, точки, подчеркивания и дефисы";
             }
         } else {
             return "Директория не найдена или не является директорией";
@@ -20,7 +22,9 @@ public class ListingGenerator {
     }
 
     private static boolean checkDocName(String docNameValue) {
-        return true;
+        Pattern pattern = Pattern.compile("^-_.A-Za-z0-9");
+        Matcher matcher = pattern.matcher(docNameValue);
+        return matcher.find();
     }
 
     private static void processFilesInDirectory(File directory, String docNameValue) { // fileFormat = ".java"
