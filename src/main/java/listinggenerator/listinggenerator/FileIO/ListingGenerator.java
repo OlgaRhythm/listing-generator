@@ -22,7 +22,7 @@ public class ListingGenerator {
     }
 
     private static boolean checkDocName(String docNameValue) {
-        Pattern pattern = Pattern.compile("^-_.A-Za-z0-9");
+        Pattern pattern = Pattern.compile("^[-_.A-Za-z0-9]+");
         Matcher matcher = pattern.matcher(docNameValue);
         return matcher.find();
     }

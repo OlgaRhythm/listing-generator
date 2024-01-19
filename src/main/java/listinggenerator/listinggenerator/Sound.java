@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 public class Sound {
     private Clip clip;
-    private boolean loop;
+    private final boolean loop;
 
     Sound(String fileName, boolean loop) {
         this.loop = loop;
