@@ -2,6 +2,7 @@ module listinggenerator.listinggenerator {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.apache.poi.ooxml;
+    requires java.desktop;
 
 
     opens listinggenerator.listinggenerator to javafx.fxml;
