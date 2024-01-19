@@ -53,7 +53,7 @@ public class MenuController {
         musOn = false;
 
         // объект для воспроизведения музыки
-        music = new Sound("music.wav");
+        music = new Sound("music.wav", true);
 
         stage.setScene(scene);
         stage.show();
@@ -95,6 +95,7 @@ public class MenuController {
         if (musOn) {
             musOn = false;
             loadPicMusButton("musoff.png");
+            music.stopSound();
         } else {
             musOn = true;
             loadPicMusButton("muson.png");

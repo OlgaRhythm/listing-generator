@@ -7,8 +7,10 @@ import java.io.InputStream;
 
 public class Sound {
     private Clip clip;
+    private boolean loop;
 
-    Sound(String fileName) {
+    Sound(String fileName, boolean loop) {
+        this.loop = loop;
         loadSound(fileName);
     }
 
@@ -43,6 +45,15 @@ public class Sound {
         }
     }
     public void playSound() {
-        clip.start();
+        if (loop) {
+            clip.loop(-1);
+        } else {
+            clip.start();
+        }
+    }
+
+    public void stopSound() {
+        clip.stop();
+        clip.setFramePosition(0);
     }
 }
