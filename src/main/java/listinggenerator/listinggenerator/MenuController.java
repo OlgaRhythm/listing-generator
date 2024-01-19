@@ -39,6 +39,7 @@ public class MenuController {
     private Button mus;
 
     Sound music;
+    //Sound butt
     boolean musOn = false;
 
     private Stage stage;
@@ -105,6 +106,7 @@ public class MenuController {
 
     @FXML
     void startClicked(ActionEvent event) {
+        errorMessage.setText("");
         String directoryValue = directory.getText();
         String docNameValue = docName.getText();
         errorMessage.setText(ListingGenerator.generate(directoryValue, docNameValue));
