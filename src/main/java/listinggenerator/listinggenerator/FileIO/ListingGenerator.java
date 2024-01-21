@@ -44,7 +44,7 @@ public class ListingGenerator {
                 if (file.isDirectory()) {
                     // Если текущий файл является директорией, рекурсивно обходим её содержимое
                     processFilesRecursive(file, document);
-                } else if (file.isFile() && file.getName().endsWith(".java")) {
+                } else if (file.isFile() && (file.getName().endsWith(".java") || file.getName().endsWith(".cpp") || file.getName().endsWith(".hs"))) {
                     // Чтение только .java файлов и добавление их содержимого в документ
                     String content = CodeReader.readCodeFromFile(file);
                     if (content != null) {
