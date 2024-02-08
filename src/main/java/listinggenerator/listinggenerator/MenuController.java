@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.DirectoryChooser;
 import listinggenerator.listinggenerator.FileIO.ListingGenerator;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.InputStream;
 
@@ -51,6 +52,8 @@ public class MenuController {
 
     public void start(Stage stage, Scene scene) {
         stage.setTitle("Генератор листинга");
+
+        stage.getIcons().add(loadPic("icomini.jpg"));
 
         // Установка изображения в ImageView
         pic.setImage(loadPic("anime.jpg"));
