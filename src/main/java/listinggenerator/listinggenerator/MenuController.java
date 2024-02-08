@@ -21,7 +21,13 @@ public class MenuController {
     private Button chooseDir;
 
     @FXML
+    private Button chooseDirToSave;
+
+    @FXML
     private TextField directory;
+
+    @FXML
+    private TextField directoryToSave;
 
     @FXML
     private TextField docName;
@@ -39,7 +45,6 @@ public class MenuController {
     private Button mus;
 
     Sound music;
-    //Sound butt
     boolean musOn = false;
 
     private Stage stage;
@@ -59,6 +64,7 @@ public class MenuController {
         stage.setScene(scene);
         stage.show();
         directory.setEditable(false);
+        directoryToSave.setEditable(false);
         this.stage = stage;
 
     }
@@ -92,6 +98,17 @@ public class MenuController {
     }
 
     @FXML
+    void chooseDirToSaveClicked(ActionEvent event) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Выберите директорию для сохранения документа");
+
+        File selectedDirectory = directoryChooser.showDialog(stage);
+        if (selectedDirectory != null) {
+            directoryToSave.setText(selectedDirectory.getAbsolutePath());
+        }
+    }
+
+    @FXML
     void musClicked(ActionEvent event) {
         if (musOn) {
             musOn = false;
@@ -108,7 +125,9 @@ public class MenuController {
     void startClicked(ActionEvent event) {
         errorMessage.setText("");
         String directoryValue = directory.getText();
+        String directoryToSaveValue = directoryToSave.getText();
+        if (directoryToSaveValue == null) directoryToSaveValue = "";
         String docNameValue = docName.getText();
-        errorMessage.setText(ListingGenerator.generate(directoryValue, docNameValue));
+        errorMessage.setText(ListingGenerator.generate(directoryValue, directoryToSaveValue, docNameValue));
     }
 }

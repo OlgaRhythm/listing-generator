@@ -34,11 +34,11 @@ public class ListingGenerator {
         add(".php");
         //add(".md");
     }};
-    public static String generate(String directoryValue, String docNameValue) {
+    public static String generate(String directoryValue, String directoryToSaveValue, String docNameValue) {
         File directory = new File(directoryValue);
         if (directory.exists() && directory.isDirectory()) {
             if (checkDocName(docNameValue)) {
-                processFilesInDirectory(directory, docNameValue);
+                processFilesInDirectory(directory, directoryToSaveValue, docNameValue);
                 return "Успешно! ^_^";
             } else {
                 return "Имя файла может содержать только латиницу, цифры, точки, подчеркивания и дефисы";
@@ -54,14 +54,14 @@ public class ListingGenerator {
         return matcher.find();
     }
 
-    private static void processFilesInDirectory(File directory, String docNameValue) {
+    private static void processFilesInDirectory(File directory, String directoryToSaveValue, String docNameValue) {
         // Создание нового документа
         XWPFDocument document = new XWPFDocument();
 
         processFilesRecursive(directory, document);
 
         // Сохранение документа в файл
-        TextWriter.writeToDocument(document, docNameValue);
+        TextWriter.writeToDocument(document, directoryToSaveValue, docNameValue);
     }
 
     private static void processFilesRecursive(File directory, XWPFDocument document) {

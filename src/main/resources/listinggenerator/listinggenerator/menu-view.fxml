@@ -21,7 +21,7 @@
                   <Font name="DejaVu Serif Bold" size="24.0" />
                </font>
             </Text>
-            <Text layoutX="20.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите директорию:">
+            <Text layoutX="20.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите директорию проекта:">
                <font>
                   <Font size="18.0" />
                </font>
@@ -30,19 +30,30 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Text layoutX="20.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите название докумета с листингом:">
+            <Text layoutX="20.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите название документа:">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button fx:id="chooseDir" layoutX="20.0" layoutY="159.0" mnemonicParsing="false" onAction="#chooseDirClicked" text="Выбрать">
+            <Button fx:id="chooseDir" layoutX="183.0" layoutY="103.0" mnemonicParsing="false" onAction="#chooseDirClicked" text="Выбрать">
                <font>
                   <Font size="14.0" />
                </font></Button>
             <Text fx:id="errorMessage" layoutX="7.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="336.2828369140625" />
-            <TextField fx:id="directory" layoutX="20.0" layoutY="123.0" />
-            <TextField fx:id="docName" layoutX="21.0" layoutY="251.0" />
+            <TextField fx:id="directory" layoutX="20.0" layoutY="105.0" />
+            <TextField fx:id="docName" layoutX="21.0" layoutY="288.0" />
             <Button fx:id="mus" layoutX="397.0" layoutY="12.0" mnemonicParsing="false" onAction="#musClicked" prefHeight="30.0" prefWidth="38.0" text="mus" />
+            <Text layoutX="20.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите директорию для сохранения документа:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button fx:id="chooseDirToSave" layoutX="183.0" layoutY="196.0" mnemonicParsing="false" onAction="#chooseDirToSaveClicked" text="Выбрать">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="directoryToSave" layoutX="20.0" layoutY="198.0" />
          </children>
       </AnchorPane>
    </children>
