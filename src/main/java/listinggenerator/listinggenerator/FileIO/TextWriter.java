@@ -26,12 +26,15 @@ public class TextWriter {
         runFileNameTitle.setFontSize(14);
         runFileNameTitle.setText(fileName + "\n");
         runFileNameTitle.addBreak();
+
         // code
         XWPFParagraph codeContent = document.createParagraph();
         XWPFRun run = codeContent.createRun();
         run.setFontFamily("Courier New");
-        run.setText(content);
-        run.addBreak();
+        for (String line : content.split("\n")) {
+            run.setText(line);
+            run.addBreak();
+        }
     }
 
 

@@ -7,12 +7,16 @@ import java.util.List;
 
 public class CodeReader {
     static String readCodeFromFile(File file) {
+        StringBuilder content = new StringBuilder();
         try {
             List<String> lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
-            return String.join("\n", lines);
+            for (String line : lines) {
+                content.append(line).append("\n");
+            }
         } catch (IOException e) {
             System.out.println("Ошибка при чтении файла: " + file.getName());
             return null;
         }
+        return content.toString();
     }
 }

@@ -1,12 +1,21 @@
 package listinggenerator.listinggenerator.FileIO;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import java.io.File;
+import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ListingGenerator {
+    // список доступных расширений файлов
+    private static LinkedList<String> fileFormat = new LinkedList<String>(){{
+        add(".java");
+        add(".cpp");
+        add(".hs");
+    }};
     public static String generate(String directoryValue, String docNameValue) {
         File directory = new File(directoryValue);
         if (directory.exists() && directory.isDirectory()) {
@@ -27,7 +36,7 @@ public class ListingGenerator {
         return matcher.find();
     }
 
-    private static void processFilesInDirectory(File directory, String docNameValue) { // fileFormat = ".java"
+    private static void processFilesInDirectory(File directory, String docNameValue) {
         // Создание нового документа
         XWPFDocument document = new XWPFDocument();
 
@@ -44,15 +53,25 @@ public class ListingGenerator {
                 if (file.isDirectory()) {
                     // Если текущий файл является директорией, рекурсивно обходим её содержимое
                     processFilesRecursive(file, document);
-                } else if (file.isFile() && (file.getName().endsWith(".java") || file.getName().endsWith(".cpp") || file.getName().endsWith(".hs"))) {
-                    // Чтение только .java файлов и добавление их содержимого в документ
+                } else if (file.isFile() && checkFileFormat(file)) {
+                    // получение содержимого файла
                     String content = CodeReader.readCodeFromFile(file);
                     if (content != null) {
+                        // System.out.print(content);
                         TextWriter.addContentToDocument(document, file.getName(), content);
                     }
                 }
             }
         }
+    }
+
+    private static boolean checkFileFormat(File file) {
+        for (String format : fileFormat) {
+            if (file.getName().endsWith(format)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
