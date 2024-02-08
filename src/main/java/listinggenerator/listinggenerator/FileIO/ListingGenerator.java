@@ -11,10 +11,28 @@ import java.util.regex.Pattern;
 
 public class ListingGenerator {
     // список доступных расширений файлов
-    private static LinkedList<String> fileFormat = new LinkedList<String>(){{
+    private static final LinkedList<String> fileFormat = new LinkedList<String>(){{
         add(".java");
         add(".cpp");
+        add(".c");
         add(".hs");
+        add(".js");
+        add(".py");
+        add(".php");
+        add(".html");
+        add(".css");
+        add(".sql");
+        //add(".xml");
+        add(".json");
+        add(".go");
+        add(".swift");
+        add(".csharp");
+        add(".cs");
+        add(".rb");
+        add(".ts");
+        add(".kt");
+        add(".php");
+        //add(".md");
     }};
     public static String generate(String directoryValue, String docNameValue) {
         File directory = new File(directoryValue);
