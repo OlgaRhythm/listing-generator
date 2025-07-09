@@ -64,7 +64,7 @@
                       strokeType="OUTSIDE" strokeWidth="0.0" fill="RED" />
 
                 <!-- Кнопки навигации -->
-                <HBox layoutX="20.0" layoutY="300.0" spacing="10.0">
+                <HBox layoutX="300.0" layoutY="350.0" spacing="10.0">
                     <Button fx:id="backButton" mnemonicParsing="false" onAction="#backClicked"
                             text="Назад" />
                     <Button fx:id="finishButton" mnemonicParsing="false" onAction="#finishClicked"

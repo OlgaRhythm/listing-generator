@@ -60,15 +60,42 @@
                     </font>
                 </Text>
 
-                <VBox layoutX="20.0" layoutY="160.0" spacing="5.0">
-                    <CheckBox fx:id="javaCheck" text=".java" />
-                    <CheckBox fx:id="cppCheck" text=".cpp" />
-                    <CheckBox fx:id="pythonCheck" text=".py" />
-                    <CheckBox fx:id="txtCheck" text=".txt" />
-                </VBox>
+                <!-- Контейнер для колонок с CheckBox -->
+                <HBox layoutX="20.0" layoutY="160.0" spacing="20.0">
+                    <VBox spacing="5.0">
+                        <CheckBox fx:id="javaCheck" text=".java" />
+                        <CheckBox fx:id="jsCheck" text=".js" />
+                        <CheckBox fx:id="cssCheck" text=".css" />
+                        <CheckBox fx:id="swiftCheck" text=".swift" />
+                        <CheckBox fx:id="tsCheck" text=".ts" />
+                    </VBox>
+
+                    <VBox spacing="5.0">
+                        <CheckBox fx:id="cppCheck" text=".cpp" />
+                        <CheckBox fx:id="pyCheck" text=".py" />
+                        <CheckBox fx:id="sqlCheck" text=".sql" />
+                        <CheckBox fx:id="csharpCheck" text=".csharp" />
+                        <CheckBox fx:id="ktCheck" text=".kt" />
+                    </VBox>
+
+                    <VBox spacing="5.0">
+                        <CheckBox fx:id="cCheck" text=".c" />
+                        <CheckBox fx:id="phpCheck" text=".php" />
+                        <CheckBox fx:id="jsonCheck" text=".json" />
+                        <CheckBox fx:id="csCheck" text=".cs" />
+                        <CheckBox fx:id="php2Check" text=".php" />
+                    </VBox>
+
+                    <VBox spacing="5.0">
+                        <CheckBox fx:id="hsCheck" text=".hs" />
+                        <CheckBox fx:id="htmlCheck" text=".html" />
+                        <CheckBox fx:id="goCheck" text=".go" />
+                        <CheckBox fx:id="rbCheck" text=".rb" />
+                    </VBox>
+                </HBox>
 
                 <!-- Кнопки навигации -->
-                <HBox layoutX="20.0" layoutY="300.0" spacing="10.0">
+                <HBox layoutX="300.0" layoutY="350.0" spacing="10.0">
                     <Button fx:id="backButton" mnemonicParsing="false" text="Назад" disable="true" />
                     <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextClicked"
                             text="Далее" disable="true" />
