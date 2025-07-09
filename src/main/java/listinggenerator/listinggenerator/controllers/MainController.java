@@ -30,7 +30,7 @@ public class MainController {
         this.stage = stage;
         this.scene = scene;
 
-        pic.setImage(loadPic("anime.jpg"));
+        pic.setImage(loadPic("anime.png"));
         loadPicMusButton("musoff.png");
         musOn = false;
         music = new Sound("music.wav", true);
@@ -49,9 +49,17 @@ public class MainController {
     // Установка изображения на кнопку музыки
     protected void loadPicMusButton(String fileName) {
         ImageView imageView = new ImageView(loadPic(fileName));
+
+        imageView.setFitHeight(25);
+        imageView.setFitWidth(25);
+
         mus.setText("");
         mus.setStyle("-fx-background-color: transparent;");
         mus.setGraphic(imageView);
+
+        mus.setPrefSize(32, 32);
+        mus.setMaxSize(32, 32);
+        mus.setMinSize(32, 32);
     }
 
     // Обработчик клика по кнопке музыки
