@@ -19,7 +19,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>listinggenerator.listinggenerator.Application</mainClass>
+                  <mainClass>listinggenerator.listinggenerator.ListingGenerator</mainClass>
                 </transformer>
               </transformers>
             </configuration>

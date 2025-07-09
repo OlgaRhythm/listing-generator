@@ -1,4 +1,4 @@
-package listinggenerator.listinggenerator.FileIO;
+package listinggenerator.listinggenerator.services;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

@@ -7,6 +7,8 @@ module listinggenerator.listinggenerator {
 
     opens listinggenerator.listinggenerator to javafx.fxml;
     exports listinggenerator.listinggenerator;
-    exports listinggenerator.listinggenerator.FileIO;
-    opens listinggenerator.listinggenerator.FileIO to javafx.fxml;
+    exports listinggenerator.listinggenerator.services;
+    opens listinggenerator.listinggenerator.services to javafx.fxml;
+    exports listinggenerator.listinggenerator.controllers;
+    opens listinggenerator.listinggenerator.controllers to javafx.fxml;
 }

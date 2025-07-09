@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="750.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="listinggenerator.listinggenerator.controllers.Page1Controller">
+
+    <children>
+        <!-- Левая панель с изображением -->
+        <AnchorPane prefHeight="400.0" prefWidth="260.0">
+            <children>
+                <ImageView fx:id="pic" fitHeight="400.0" fitWidth="260.0"
+                           pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </AnchorPane>
+
+        <!-- Правая панель с контентом -->
+        <AnchorPane layoutX="280.0" prefHeight="400.0" prefWidth="490.0">
+            <children>
+                <!-- Кнопка музыки -->
+                <Button fx:id="mus" layoutX="397.0" layoutY="12.0" mnemonicParsing="false"
+                        onAction="#musClicked" prefHeight="30.0" prefWidth="38.0" text="mus" />
+
+                <!-- Заголовок -->
+                <Text layoutX="29.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Шаг 1: Выбор проекта" textAlignment="CENTER"
+                      wrappingWidth="353.4827880859375">
+                    <font>
+                        <Font name="DejaVu Serif Bold" size="24.0" />
+                    </font>
+                </Text>
+
+                <!-- Выбор директории проекта -->
+                <Text layoutX="20.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Выберите директорию проекта:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="directoryField" layoutX="20.0" layoutY="105.0" prefWidth="280.0" />
+                <Button fx:id="chooseDirButton" layoutX="310.0" layoutY="105.0"
+                        mnemonicParsing="false" onAction="#chooseDirClicked" text="Выбрать" />
+
+                <!-- Выбор форматов файлов -->
+                <Text layoutX="20.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Выберите форматы файлов:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+
+                <VBox layoutX="20.0" layoutY="160.0" spacing="5.0">
+                    <CheckBox fx:id="javaCheck" text=".java" />
+                    <CheckBox fx:id="cppCheck" text=".cpp" />
+                    <CheckBox fx:id="pythonCheck" text=".py" />
+                    <CheckBox fx:id="txtCheck" text=".txt" />
+                </VBox>
+
+                <!-- Кнопки навигации -->
+                <HBox layoutX="20.0" layoutY="300.0" spacing="10.0">
+                    <Button fx:id="backButton" mnemonicParsing="false" text="Назад" disable="true" />
+                    <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextClicked"
+                            text="Далее" disable="true" />
+                </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

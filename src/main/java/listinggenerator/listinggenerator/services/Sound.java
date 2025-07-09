@@ -1,4 +1,4 @@
-package listinggenerator.listinggenerator;
+package listinggenerator.listinggenerator.services;
 
 import javax.sound.sampled.*;
 import java.io.ByteArrayInputStream;
@@ -9,7 +9,7 @@ public class Sound {
     private Clip clip;
     private final boolean loop;
 
-    Sound(String fileName, boolean loop) {
+    public Sound(String fileName, boolean loop) {
         this.loop = loop;
         loadSound(fileName);
     }

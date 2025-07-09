@@ -1,4 +1,4 @@
-package listinggenerator.listinggenerator.FileIO;
+package listinggenerator.listinggenerator.services;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class TextWriter {
 
     static void writeToDocument (XWPFDocument document, String directoryToSaveValue, String docNameValue) {
-        if (!directoryToSaveValue.isEmpty()) directoryToSaveValue+="\\";
+        if (!directoryToSaveValue.isEmpty()) directoryToSaveValue+="/";
         try (FileOutputStream out = new FileOutputStream(directoryToSaveValue  + docNameValue + ".docx")) {
             System.out.println(directoryToSaveValue + docNameValue + ".docx");
             document.write(out);
@@ -20,7 +20,20 @@ public class TextWriter {
         }
     }
 
-    static void addContentToDocument(XWPFDocument document, String fileName, String content) {
+    static void addContentToDocument(XWPFDocument document,
+                                     String fileName,
+                                     String content,
+                                     String titleFont,
+                                     String codeFont) {
+        // Разбираем настройки шрифтов
+        String[] titleFontParts = titleFont.split(",");
+        String titleFontName = titleFontParts.length > 0 ? titleFontParts[0] : "Times New Roman";
+        int titleFontSize = titleFontParts.length > 1 ? Integer.parseInt(titleFontParts[1]) : 14;
+
+        String[] codeFontParts = codeFont.split(",");
+        String codeFontName = codeFontParts.length > 0 ? codeFontParts[0] : "Courier New";
+        int codeFontSize = codeFontParts.length > 1 ? Integer.parseInt(codeFontParts[1]) : 10;
+
         // file name
         XWPFParagraph fileNameTitle = document.createParagraph();
         XWPFRun runFileNameTitle = fileNameTitle.createRun();
