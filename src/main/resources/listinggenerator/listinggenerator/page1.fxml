@@ -10,6 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import listinggenerator.listinggenerator.controllers.SoundButton?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="400.0" prefWidth="750.0"
             xmlns="http://javafx.com/javafx/21"
@@ -26,12 +27,8 @@
         </AnchorPane>
 
         <!-- Правая панель с контентом -->
-        <AnchorPane layoutX="280.0" prefHeight="400.0" prefWidth="490.0">
+        <AnchorPane fx:id="rightPane" layoutX="280.0" prefHeight="400.0" prefWidth="490.0">
             <children>
-                <!-- Кнопка музыки -->
-                <Button fx:id="mus" layoutX="397.0" layoutY="12.0" mnemonicParsing="false"
-                        onAction="#musClicked" prefHeight="30.0" prefWidth="38.0" text="mus" />
-
                 <!-- Заголовок -->
                 <Text layoutX="29.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0"
                       text="Шаг 1: Выбор проекта" textAlignment="CENTER"
@@ -100,6 +97,7 @@
                     <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextClicked"
                             text="Далее" disable="true" />
                 </HBox>
+
             </children>
         </AnchorPane>
     </children>
